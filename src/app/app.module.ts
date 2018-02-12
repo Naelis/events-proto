@@ -17,6 +17,8 @@ import {MapserviceService} from './services/mapservice.service';
 import { MapComponent } from './components/map/map.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { EventCardComponent } from './components/event-card/event-card.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { HeaderComponent } from './components/header/header.component';
     CalendarComponent,
     NavigationComponent,
     MapComponent,
-    HeaderComponent
+    HeaderComponent,
+    GalleryComponent,
+    EventCardComponent
   ],
   imports: [
     BrowserModule,
