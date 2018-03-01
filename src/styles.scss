@@ -60,6 +60,10 @@ $colors: map-merge($colors, $addColors);
 margin: 3%;
 }
 
+.but {
+  width: 60%;
+}
+
 // Font styles
 
 .title {

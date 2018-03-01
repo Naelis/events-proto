@@ -21,7 +21,7 @@ export class SearchbarComponent implements OnInit {
     clicked(event) {
         this.eventService.userInput = this.input;
 
-        this.router.navigate(['results']);
+        // this.router.navigate(['results']);
 
     }
 
