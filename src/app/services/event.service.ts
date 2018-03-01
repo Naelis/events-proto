@@ -4,32 +4,28 @@ import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class EventService {
 
-    apiAddress = 'http://api.hel.fi/linkedevents/v1/';
+    apiAddress = 'http://api.hel.fi/linkedevents/v1/search/?type=event?include=location%2ckeywords&input=';
     byKeyword = 'keyword/?format=json';
     byCategory = '';
     byVenue = 'place/?format=json';
     byEvent = 'event/';
-    byInput = 'event/?text=';
-    modifiedSearch = '?include=location%2ckeywords/?format=json';
-    userInput = '';
-    results: any;
+    byInput = 'event&input=';
+    modifiedSearch = '?include=location%2ckeywords';
+    userInput: '';
+    public results: any;
 
     constructor(private http: HttpClient) {
     }
 
-    search() {
 
-        interface DataInterface {
-            data: any;
+    getFromApi(input) {
+
+
+        interface EventData {
+            data: Object;
         }
 
-        this.http.get<DataInterface>(this.apiAddress + this.byInput + this.userInput + this.modifiedSearch).subscribe(data => {
-            console.log(data.data);
-            this.results = data.data;
-        });
-
-        return this.results;
-
+        return this.http.get<EventData>(this.apiAddress + input);
     }
 
 }

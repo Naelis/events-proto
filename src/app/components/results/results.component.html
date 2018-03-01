@@ -1,8 +1,24 @@
-<p>
-  results works!
-</p>
+<p class="content" *ngIf="userInput">Searching for results based on... "{{ userInput }}"</p>
 
-<p>Tulostetaan paikkoja ja niiden osoitteita:</p>
-<p *ngFor="let result of searchResult">
-  {{ result.name.fi }} <br>
-</p>
+<p class="content" *ngIf="!userInput">Woops! You didn't search for anything... Try using the searchbar above! :)</p>
+
+<div class="container" *ngFor="let events of output">
+    <div>
+        <h2 class="title" *ngIf="events.name.en && events.description.en">{{events.name.en}}</h2>
+        <div *ngIf="events.description.en" [innerHTML]="events.description.en"></div>
+    </div>
+<br>
+
+</div>
+
+
+<!--Code below is nonfunctional...-->
+<div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <!-- Any other Bulma elements you want -->
+        <p>Specific details are added here!</p>
+
+    </div>
+    <button id="close-modal" class="modal-close is-large" aria-label="close"></button>
+</div>

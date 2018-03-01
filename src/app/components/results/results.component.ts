@@ -1,19 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {EventService} from '../../services/event.service';
 
 @Component({
-  selector: 'app-results',
-  templateUrl: './results.component.html',
-  styleUrls: ['./results.component.scss']
+    selector: 'app-results',
+    templateUrl: './results.component.html',
+    styleUrls: ['./results.component.scss']
 })
 export class ResultsComponent implements OnInit {
 
-  searchResult: any;
+    output: any;
+    userInput: '';
 
-  constructor(private eventService: EventService) { }
+    constructor(private eventService: EventService) {
+    }
 
-  ngOnInit() {
-      this.searchResult = this.eventService.search();
-  }
+
+    search() {
+
+        interface DataInterface {
+            data: any;
+        }
+
+        this.eventService.getFromApi(this.userInput).subscribe(data => {
+
+            this.output = data['data'];
+
+            console.log(this.output);
+        });
+
+    }
+
+
+
+
+    ngOnInit() {
+        this.userInput = this.eventService.userInput;
+        this.search();
+
+    }
 
 }
