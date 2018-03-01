@@ -19,6 +19,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { EventCardComponent } from './components/event-card/event-card.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -39,9 +40,13 @@ import { EventCardComponent } from './components/event-card/event-card.component
     BrowserModule,
     AppRoutingModule,
       FormsModule,
-      HttpClientModule
+      HttpClientModule,
+      AgmCoreModule.forRoot({
+          apiKey: 'AIzaSyDBqH5K7K3BHn2xPcIk5Jl92AJuEox2kOk',
+      })
   ],
   providers: [EventService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
