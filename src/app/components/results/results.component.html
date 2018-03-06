@@ -1,15 +1,4 @@
-<p class="content" *ngIf="userInput">Searching for results based on... "{{ userInput }}"</p>
 
-<p class="content" *ngIf="!userInput">Woops! You didn't search for anything... Try using the searchbar above! :)</p>
-
-<div class="container" *ngFor="let events of output">
-    <div>
-        <h2 class="title" *ngIf="events.name.en && events.description.en">{{events.name.en}}</h2>
-        <div *ngIf="events.description.en" [innerHTML]="events.description.en"></div>
-    </div>
-<br>
-
-</div>
 
 
 <!--Code below is nonfunctional...-->

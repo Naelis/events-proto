@@ -6,13 +6,14 @@ export class EventService {
 
     apiAddress = 'http://api.hel.fi/linkedevents/v1/search/?type=event?include=location%2ckeywords&input=';
     byKeyword = 'keyword/?format=json';
-    byCategory = '';
     byVenue = 'place/?format=json';
     byEvent = 'event/';
     byInput = 'event&input=';
     modifiedSearch = '?include=location%2ckeywords';
     userInput: '';
     public results: any;
+    locationApi = 'http://api.hel.fi/linkedevents/v1/place/tprek:';
+    id: any;
 
     constructor(private http: HttpClient) {
     }
@@ -25,7 +26,20 @@ export class EventService {
             data: Object;
         }
 
+
         return this.http.get<EventData>(this.apiAddress + input);
+    }
+
+
+    getLocation(locationSearch) {
+
+        interface LocationData {
+            position: any;
+            infoUrl: any;
+        }
+
+
+        return this.http.get<LocationData>(locationSearch);
     }
 
 }

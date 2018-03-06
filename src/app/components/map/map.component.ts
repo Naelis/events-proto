@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ElementRef, NgZone, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {} from 'googlemaps';
-import {MapsAPILoader} from '@agm/core';
+import {MapsAPILoader, MarkerManager} from '@agm/core';
 
 @Component({
     selector: 'app-map',
@@ -14,18 +14,18 @@ export class MapComponent implements OnInit {
 
     public lat: number;
     public lng: number;
+    markLat: number;
+    markLng: number;
     locationChosen = false;
-    public gestures = 'cooperative';
     public searchControl: FormControl;
     public zoom: number;
-    public watchID = null;
 
 
     @ViewChild('search')
     public searchElementRef: ElementRef;
 
     constructor(private mapsAPILoader: MapsAPILoader,
-                private ngZone: NgZone) {
+                private ngZone: NgZone, private markerManager: MarkerManager) {
     }
 
     ngOnInit() {
