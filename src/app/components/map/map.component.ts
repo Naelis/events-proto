@@ -17,7 +17,6 @@ export class MapComponent implements OnInit {
     markLat: number;
     markLng: number;
     locationChosen = false;
-    public searchControl: FormControl;
     public zoom: number;
 
 
