@@ -12,8 +12,11 @@ export class EventService {
     modifiedSearch = '?include=location%2ckeywords';
     userInput: '';
     public results: any;
+    public url: string;
     locationApi = 'http://api.hel.fi/linkedevents/v1/place/tprek:';
     id: any;
+
+    public eventInfo: any;
 
     constructor(private http: HttpClient) {
     }
@@ -38,8 +41,14 @@ export class EventService {
             infoUrl: any;
         }
 
-
         return this.http.get<LocationData>(locationSearch);
+    }
+
+
+
+    drawMarkers() {
+
+
     }
 
 }

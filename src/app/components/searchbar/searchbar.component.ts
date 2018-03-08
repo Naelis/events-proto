@@ -12,16 +12,14 @@ export class SearchbarComponent implements OnInit {
 
     input: '';
 
-    constructor(private router: Router, private eventService: EventService) {
+    constructor(private router: Router, public eventService: EventService) {
     }
 
 
-
-
     clicked(event) {
-        this.eventService.userInput = this.input;
+        console.log(this.eventService.userInput);
 
-        // this.router.navigate(['results']);
+        this.router.navigate(['temp']);
 
     }
 

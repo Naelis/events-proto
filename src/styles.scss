@@ -8,22 +8,44 @@
 
 // 2. Set your own initial variables
 // Update blue
-$blue: #72d0eb;
+$blue: #5EB2F2;
+$pastelblue: #9BCEF5;
 // Add pink and its invert
 $pink: #ffb3b3;
 $pink-invert: #fff;
 
-$orange: #FFA500;
+$darkblue: #0289F0;
+$darkblue-invert: #fff;
+
+$orange: #FFB858;
 $orange-invert: #fff;
+
+$pastelorange: #FFD49B;
+
+$yellow: #FFD758;
+
+$darkorange: #FF9200;
+
+$green: #00974E;
+
 // Add a serif family
 $family-serif: "Merriweather", "Georgia", serif;
 
 // 3. Set the derived variables
 // Use the new pink as the primary color
-$primary: $orange;
-$primary-invert: $orange-invert;
+$primary: $darkblue;
+$primary-invert: $darkblue-invert;
+
+$info: $yellow;
+$info-invert: #fff;
+
+$success: $green;
+$success-invert: #fff;
+
 // Use the existing orange as the danger color
-$danger: $orange;
+$danger: $yellow;
+$danger-invert: #fff;
+
 // Use the new serif family
 $family-primary: $family-serif;
 
@@ -46,6 +68,19 @@ $colors: map-merge($colors, $addColors);
 
 
 // Custom layout styles
+
+html{
+  width:100%;
+  height:100%;
+
+}
+
+body{
+  width: 100%;
+  height: 100%;
+  background-color: $pastelblue;
+}
+
 .top {
   display: flex;
   margin: 5%;
@@ -70,10 +105,6 @@ margin: 3%;
   color: aquamarine !important;
 }
 
-.body {
-  background-color: yellow !important;
-}
-
 
 @import "../node_modules/bulma/bulma.sass";
 
@@ -82,3 +113,21 @@ margin: 3%;
 @import "../node_modules/bulma/sass/grid/columns";
 @import "../node_modules/bulma/sass/elements/button.sass";
 */
+
+
+@media screen and (max-width: 768px){
+
+  html{
+    width:100%;
+    height:100%;
+
+  }
+
+  body{
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }
+
+}

@@ -17,6 +17,8 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { EventCardComponent } from './components/event-card/event-card.component';
 import { AgmCoreModule } from '@agm/core';
 import {ReactiveFormsModule} from '@angular/forms';
+import { TempComponent } from './temp/temp.component';
+import {ScrollToModule} from '@nicky-lenaers/ngx-scroll-to';
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     MapComponent,
     HeaderComponent,
     GalleryComponent,
-    EventCardComponent
+    EventCardComponent,
+    TempComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import {ReactiveFormsModule} from '@angular/forms';
       AgmCoreModule.forRoot({
           apiKey: 'AIzaSyDBqH5K7K3BHn2xPcIk5Jl92AJuEox2kOk',
       }),
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      ScrollToModule.forRoot()
   ],
   providers: [EventService],
   bootstrap: [AppComponent]

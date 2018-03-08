@@ -1,26 +1,32 @@
 import {Component, OnInit} from '@angular/core';
 import {EventService} from '../../services/event.service';
-import {forEach} from '@angular/router/src/utils/collection';
+
 
 @Component({
     selector: 'app-results',
     styleUrls: ['./results.component.scss'],
     template: `
+        <div id="destination"></div>
         <p class="content" *ngIf="userInput">Searching for results based on... "{{ userInput }}"</p>
 
         <p class="content" *ngIf="!userInput">Woops! You didn't search for anything... Try using the searchbar above! :)</p>
 
         <div class="container" *ngFor="let events of output;">
-            <div>
-                <h2 class="title" *ngIf="events.name.en && events.description.en">{{events.name.en}}</h2>
-                <div *ngIf="events.description.en" [innerHTML]="events.description.en"></div>
-                <p>Url goes here: {{ urlDisplay }}</p>
-            </div>
+            <h2 class="title is-success" *ngIf="events.name.en && events.description.en">{{events.name.en}}</h2>
+            <div *ngIf="events.description.en" [innerHTML]="events.description.en"></div>
+            <p *ngIf="events.position && events.description.en">Url goes here: <span *ngIf="events.position.info_url">
+                    {{ events.position.info_url.fi }}</span>
+            </p>
+            <a class="button is-small is-info" *ngIf="events.description.en && events.position">Show on Map</a>
             <br>
-
+            <br>
         </div>
+
+        <button [ngx-scroll-to]="'#destination'" *ngIf="userInput">Back to Top</button>
+
     `
 })
+
 export class ResultsComponent implements OnInit {
 
     output: any;
@@ -33,39 +39,39 @@ export class ResultsComponent implements OnInit {
     public lngDisplay: number;
     public urlDisplay: string;
 
-    constructor(private eventService: EventService) {
+    constructor(public eventService: EventService) {
     }
 
 
     search() {
 
 
-        this.eventService.getFromApi(this.userInput).subscribe(data => {
+        this.eventService.getFromApi(this.eventService.userInput).subscribe(data => {
 
             this.output = data['data'];
 
             console.log(this.output);
 
             this.output.forEach(eventListed => {
+
+
                 if (eventListed.location) {
-                    // console.log('Looking for coords for' + eventListed.id);
+
                     this.locID = eventListed.location['@id'];
-                    // console.log('Trying to search in other address:' + this.locID);
+
                     this.eventService.getLocation(this.locID).subscribe(pos => {
-                        this.posresults = pos;
+                        eventListed.position = pos;
+                        console.log(eventListed);
+                        // this.latDisplay = position.coordinates[0];
+                        // this.lngDisplay = eventListed.position.coordinates[1];
 
-                        this.latDisplay = this.posresults.position.coordinates[0];
-                        this.lngDisplay = this.posresults.position.coordinates[1];
-                        console.log('Lat:' + this.latDisplay + 'Lng:' + this.lngDisplay);
-
-                        if (this.posresults.info_url) {
-                            this.urlDisplay = this.posresults.info_url.fi;
-                            console.log('Url:' + this.urlDisplay);
-                        }
                     });
+
                 } else {
                     console.log('there was no location listed for' + eventListed.id);
                 }
+
+
             });
 
 
@@ -77,7 +83,6 @@ export class ResultsComponent implements OnInit {
     ngOnInit() {
         this.userInput = this.eventService.userInput;
         this.search();
-
     }
 
 }

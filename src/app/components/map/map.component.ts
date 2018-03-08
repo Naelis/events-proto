@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ElementRef, NgZone, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {} from 'googlemaps';
-import {MapsAPILoader, MarkerManager} from '@agm/core';
+import {MapsAPILoader} from '@agm/core';
 
 @Component({
     selector: 'app-map',
@@ -25,24 +25,26 @@ export class MapComponent implements OnInit {
     public searchElementRef: ElementRef;
 
     constructor(private mapsAPILoader: MapsAPILoader,
-                private ngZone: NgZone, private markerManager: MarkerManager) {
+                private ngZone: NgZone) {
     }
 
     ngOnInit() {
         // set google maps defaults
-        this.zoom = 4;
+        this.zoom = 10;
         this.lat = 60.192059;
         this.lng = 24.945831;
 
 
+
+
         // create search FormControl
-        this.searchControl = new FormControl();
+        // this.searchControl = new FormControl();
 
         // set current position
         this.setCurrentPosition();
 
         // load Places Autocomplete
-        this.mapsAPILoader.load().then(() => {
+       /* this.mapsAPILoader.load().then(() => {
             let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
                 types: ['address']
             });
@@ -59,10 +61,10 @@ export class MapComponent implements OnInit {
                     // set latitude, longitude and zoom
                     this.lat = place.geometry.location.lat();
                     this.lng = place.geometry.location.lng();
-                    this.zoom = 12;
+                    this.zoom = 14;
                 });
             });
-        });
+        });*/
     }
 
     private setCurrentPosition() {
@@ -70,7 +72,7 @@ export class MapComponent implements OnInit {
             navigator.geolocation.getCurrentPosition((position) => {
                 this.lat = position.coords.latitude;
                 this.lng = position.coords.longitude;
-                this.zoom = 12;
+                this.zoom = 14;
             });
         }
     }

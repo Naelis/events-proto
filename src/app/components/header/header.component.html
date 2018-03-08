@@ -1,13 +1,21 @@
-<section class="hero is-info is-bold">
+<section class="hero is-primary is-bold">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
         {{ title }}
       </h1>
       <h2 class="subtitle">
-        {{ greeting }}<br>
-        This is a testing version of the app! Some things may work differently than intended. (Or not at all...)
+        {{ greeting }}
       </h2>
     </div>
   </div>
 </section>
+<div class="columns is-gapless" style="margin: 5px;">
+  <div class="column is-gapless">
+    <app-navigation></app-navigation>
+  </div>
+
+  <div class="column is-gapless">
+    <app-searchbar></app-searchbar>
+  </div>
+</div>

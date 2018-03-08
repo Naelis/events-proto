@@ -1,6 +1,31 @@
 
 agm-map {
   height: 50em;
-  width: 40em;
-  position: fixed;
+  width: 100%;
+
+}
+
+.agm-map-mobile {
+  height: 100%;
+  width: 100%;
+  top: 30%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@media screen and (max-width: 480px) {
+
+  agm-map {
+    height: 440px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1100px) and (min-width: 800px) {
+
+  agm-map {
+    height: 950px;
+    width: 100%;
+  }
 }
