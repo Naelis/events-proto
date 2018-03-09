@@ -1,18 +1,23 @@
-<ul class="level is-hidden-tablet">
-  <li class="level-item"><a class="button is-small is-primary but">Events</a></li>
-  <li class="level-item"><a class="button is-small is-primary but">Food</a></li>
-  <li class="level-item"><a class="button is-small is-primary but">Museum</a></li>
-  <li class="level-item"><a class="button is-small is-primary but">Nightlife</a></li>
-  <li class="level-item"><a class="button is-small is-primary but">Shopping</a></li>
-  <li class="level-item"><a class="button is-small is-primary but">Sightseeing</a></li>
-  <li class="level-item"><a class="button is-small is-primary but">Transport</a></li>
+<ul id="list" class="level is-hidden-tablet">
+  <li class="level-item"><a class="button is-medium is-primary but" (click)="food();">Food</a></li>
+  <li class="level-item"><a class="button is-medium is-primary but" (click)="kids();">Kids</a></li>
+  <li class="level-item"><a class="button is-medium is-primary but" (click)="museum();">Museum</a></li>
+  <li class="level-item"><a class="button is-medium is-primary but" (click)="shopping();">Shopping</a></li>
+  <li class="level-item"><a class="button is-medium is-primary but" (click)="sightseeing();">Sightseeing</a></li>
 </ul>
-<ul class="level is-hidden-mobile">
-  <li class="level-item"><a class="button is-medium is-primary">Events</a></li>
-  <li class="level-item"><a class="button is-medium is-primary">Food</a></li>
-  <li class="level-item"><a class="button is-medium is-primary">Museum</a></li>
-  <li class="level-item"><a class="button is-medium is-primary">Nightlife</a></li>
-  <li class="level-item"><a class="button is-medium is-primary">Shopping</a></li>
-  <li class="level-item"><a class="button is-medium is-primary">Sightseeing</a></li>
-  <li class="level-item"><a class="button is-medium is-primary">Transport</a></li>
+<ul id="list" class="level is-hidden-mobile">
+  <li class="level-item"><a class="button is-medium is-primary" (click)="food();">Food</a></li>
+  <li class="level-item"><a class="button is-medium is-primary" (click)="kids();">Kids</a></li>
+  <li class="level-item"><a class="button is-medium is-primary" (click)="museum();">Museum</a></li>
+  <li class="level-item"><a class="button is-medium is-primary" (click)="shopping();">Shopping</a></li>
+  <li class="level-item"><a class="button is-medium is-primary" (click)="sightseeing();">Sightseeing</a></li>
 </ul>
+
+<div class="container" *ngFor="let events of output">
+  <div>
+    <h2 class="title" *ngIf="events.name.en && events.description.en">{{events.name.en}}</h2>
+    <div *ngIf="events.description.en" [innerHTML]="events.description.en"></div>
+  </div>
+  <br>
+
+</div>

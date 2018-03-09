@@ -1,12 +1,23 @@
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
 <div class="container">
-    <agm-map [latitude]="lat" [longitude]="lng" [scrollwheel]="false" [zoom]="zoom" [mapDraggable]="true" [minZoom]="8" [maxZoom]="18">
+    <agm-map [latitude]="lat" [longitude]="lng" [scrollwheel]="false" [zoom]="zoom" [mapDraggable]="true" [minZoom]="8"
+             [maxZoom]="18">
         <!--(mapClick)="onChoseLocation($event)" -->
         <!-- *ngFor goes here for markers: -->
         <agm-marker [latitude]="lat" [longitude]="lng">
             <agm-info-window>
                 <p>You are here!</p>
+            </agm-info-window>
+        </agm-marker>
+
+        <agm-marker *ngIf="eventService.lat && eventService.lng" [latitude]="eventService.lat"
+                    [longitude]="eventService.lng">
+            <agm-info-window>
+                <p>{{ eventService.locale }}<br>
+                    {{ eventService.address }}<br>
+                    <a [href]="eventService.eventurl">{{ eventService.eventurl }}</a>
+                </p>
             </agm-info-window>
         </agm-marker>
     </agm-map>

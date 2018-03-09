@@ -3,6 +3,7 @@ import {ElementRef, NgZone, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {} from 'googlemaps';
 import {MapsAPILoader} from '@agm/core';
+import {EventService} from '../../services/event.service';
 
 @Component({
     selector: 'app-map',
@@ -14,8 +15,8 @@ export class MapComponent implements OnInit {
 
     public lat: number;
     public lng: number;
-    markLat: number;
-    markLng: number;
+    public markLat: number;
+    public markLng: number;
     locationChosen = false;
     public zoom: number;
 
@@ -24,7 +25,7 @@ export class MapComponent implements OnInit {
     public searchElementRef: ElementRef;
 
     constructor(private mapsAPILoader: MapsAPILoader,
-                private ngZone: NgZone) {
+                private ngZone: NgZone, public eventService: EventService) {
     }
 
     ngOnInit() {
@@ -32,6 +33,7 @@ export class MapComponent implements OnInit {
         this.zoom = 10;
         this.lat = 60.192059;
         this.lng = 24.945831;
+
 
 
 

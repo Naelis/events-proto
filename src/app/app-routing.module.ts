@@ -9,7 +9,7 @@ const routes: Routes = [
     {
         path: 'results', component: ResultsComponent
     }, {
-        path: 'frontpage', component: MapComponent
+        path: '', component: MapComponent
     }, {
         path: 'categories', component: CategorylistComponent
     },
@@ -17,12 +17,12 @@ const routes: Routes = [
         path: 'temp', component: TempComponent
     },
     {
-        path: '**', redirectTo: '/frontpage'
+        path: '**', redirectTo: ''
     },
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'frontpage'
+        component: MapComponent
     }
 
 ];

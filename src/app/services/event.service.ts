@@ -1,22 +1,23 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {interval} from 'rxjs/observable/interval';
 
 @Injectable()
 export class EventService {
 
     apiAddress = 'http://api.hel.fi/linkedevents/v1/search/?type=event?include=location%2ckeywords&input=';
-    byKeyword = 'keyword/?format=json';
-    byVenue = 'place/?format=json';
-    byEvent = 'event/';
-    byInput = 'event&input=';
     modifiedSearch = '?include=location%2ckeywords';
-    userInput: '';
+    userInput: string;
     public results: any;
     public url: string;
     locationApi = 'http://api.hel.fi/linkedevents/v1/place/tprek:';
-    id: any;
+    imageApi = 'http://api.hel.fi/linkedevents/v1/image/';
+    public lat: number;
+    public lng: number;
+    public locale: string;
+    public address: string;
+    public eventurl: string;
 
-    public eventInfo: any;
 
     constructor(private http: HttpClient) {
     }
@@ -44,11 +45,24 @@ export class EventService {
         return this.http.get<LocationData>(locationSearch);
     }
 
+    getImage(imageSearch) {
+        interface ImageData {
+            url: any;
+        }
 
-
-    drawMarkers() {
-
-
+        return this.http.get<ImageData>(this.imageApi + imageSearch);
     }
+
+    setMarker(lat, lng) {
+        this.lat = lat;
+        this.lng = lng;
+    }
+
+    setLocale(locale, address, eventurl) {
+        this.locale = locale;
+        this.address = address;
+        this.eventurl = eventurl;
+    }
+
 
 }
