@@ -14,6 +14,17 @@ export class CategorylistComponent implements OnInit {
     locID: Object;
 
     constructor(private eventService: EventService, private router: Router) { }
+    dance() {
+        let list = document.getElementById('list');
+        if (list.style.display === 'none') {
+            list.style.display = 'block';
+        } else {
+            list.style.display = 'none';
+        }
+
+        this.eventService.userInput = 'dance';
+        this.router.navigate(['results']);
+    }
 
     food() {
         let list = document.getElementById('list');
@@ -34,7 +45,18 @@ export class CategorylistComponent implements OnInit {
             list.style.display = 'none';
         }
 
-        this.eventService.userInput = 'museum';
+        this.eventService.userInput = 'museo';
+        this.router.navigate(['results']);
+    }
+    music() {
+        let list = document.getElementById('list');
+        if (list.style.display === 'none') {
+            list.style.display = 'block';
+        } else {
+            list.style.display = 'none';
+        }
+
+        this.eventService.userInput = 'music';
         this.router.navigate(['results']);
     }
     kids() {
@@ -48,7 +70,7 @@ export class CategorylistComponent implements OnInit {
         this.eventService.userInput = 'kids';
         this.router.navigate(['results']);
     }
-    shopping() {
+    events() {
         let list = document.getElementById('list');
         if (list.style.display === 'none') {
             list.style.display = 'block';
@@ -56,10 +78,10 @@ export class CategorylistComponent implements OnInit {
             list.style.display = 'none';
         }
 
-        this.eventService.userInput = 'shopping';
+        this.eventService.userInput = 'tapahtumat';
         this.router.navigate(['results']);
     }
-    sightseeing() {
+    theatre() {
         let list = document.getElementById('list');
         if (list.style.display === 'none') {
             list.style.display = 'block';
@@ -67,7 +89,7 @@ export class CategorylistComponent implements OnInit {
             list.style.display = 'none';
         }
 
-        this.eventService.userInput = 'sightseeing';
+        this.eventService.userInput = 'theatre';
         this.router.navigate(['results']);
     }
     ngOnInit() {

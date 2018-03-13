@@ -1,21 +1,24 @@
 <section class="hero is-primary is-bold">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        {{ title }}
-      </h1>
-      <h2 class="subtitle">
-        {{ greeting }}
-      </h2>
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title" style="border-bottom-style: solid; border-top-style: hidden; border-left-style: hidden; border-right-style: hidden;">
+                {{ title }}
+            </h1>
+            <h2 class="subtitle">
+                {{ greeting }}
+            </h2>
+        </div>
     </div>
-  </div>
-</section>
-<div class="columns is-gapless" style="margin: 5px;">
-  <div class="column is-gapless">
-    <app-navigation></app-navigation>
-  </div>
 
-  <div class="column is-gapless">
-    <app-searchbar></app-searchbar>
-  </div>
-</div>
+    <div class="hero-foot">
+        <div class="columns">
+            <div class="column is-gapless">
+                <app-navigation></app-navigation>
+            </div>
+            <div class="column is-gapless">
+                <app-searchbar></app-searchbar>
+            </div>
+        </div>
+    </div>
+</section>
+

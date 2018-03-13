@@ -12,15 +12,16 @@ import {Router} from '@angular/router';
 
         <p class="content" *ngIf="!userInput">Woops! You didn't search for anything... Try using the searchbar above! :)</p>
 
-        <div class="container" *ngFor="let events of output" style="padding-bottom: 3em;">
+        <div class="container" *ngFor="let events of output" style="padding-bottom: 1em;">
             <img *ngIf="events.images && events.images != null" (error)="events.images.url = 'https://i.imgur.com/SMHWpdS.png'"
                  [src]='events.images.url'>
             <h2 class="title is-success" *ngIf="events.name.en && events.description.en">{{events.name.en}}</h2>
             <h2 class="title is-success" *ngIf="events.name.fi && !events.name.en">{{events.name.fi}}</h2>
             <div *ngIf="events.description.en" [innerHTML]="events.description.en"></div>
             <div *ngIf="events.description.fi && !events.description.en" [innerHTML]="events.description.fi"></div>
-            <p *ngIf="events.position && events.description && events.position.info_url">Url goes here: <span>
-                    {{ events.position.info_url.fi }}</span>
+            <p *ngIf="events.position && events.description && events.position.info_url">
+                <a [href]="events.position.info_url.fi">{{ events.position.info_url.fi
+                    }}</a>
             </p>
             <a class="button is-small is-info" *ngIf="events.description && events.position && events.position.info_url"
                (click)="navigateToMap(events.position.position, events.position.name.en, events.position.street_address.fi,

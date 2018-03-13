@@ -1,16 +1,21 @@
-<ul id="list" class="level is-hidden-tablet">
+<ul id="list" class="level is-hidden-tablet" style="margin-top: 1em;">
+  <li class="level-item"><a class="button is-medium is-primary but" (click)="dance();">Dance</a></li>
   <li class="level-item"><a class="button is-medium is-primary but" (click)="food();">Food</a></li>
   <li class="level-item"><a class="button is-medium is-primary but" (click)="kids();">Kids</a></li>
   <li class="level-item"><a class="button is-medium is-primary but" (click)="museum();">Museum</a></li>
-  <li class="level-item"><a class="button is-medium is-primary but" (click)="shopping();">Shopping</a></li>
-  <li class="level-item"><a class="button is-medium is-primary but" (click)="sightseeing();">Sightseeing</a></li>
+  <li class="level-item"><a class="button is-medium is-primary but" (click)="music();">Music</a></li>
+  <li class="level-item"><a class="button is-medium is-primary but" (click)="theatre();">Theatre</a></li>
+  <li class="level-item"><a class="button is-medium is-primary but" (click)="events();">Other Events</a></li>
 </ul>
 <ul id="list" class="level is-hidden-mobile">
+  <li class="level-item"><a class="button is-medium is-primary" (click)="dance();">Dance</a></li>
   <li class="level-item"><a class="button is-medium is-primary" (click)="food();">Food</a></li>
   <li class="level-item"><a class="button is-medium is-primary" (click)="kids();">Kids</a></li>
   <li class="level-item"><a class="button is-medium is-primary" (click)="museum();">Museum</a></li>
-  <li class="level-item"><a class="button is-medium is-primary" (click)="shopping();">Shopping</a></li>
-  <li class="level-item"><a class="button is-medium is-primary" (click)="sightseeing();">Sightseeing</a></li>
+  <li class="level-item"><a class="button is-medium is-primary" (click)="music();">Music</a></li>
+  <li class="level-item"><a class="button is-medium is-primary" (click)="theatre();">Theatre</a></li>
+  <li class="level-item"><a class="button is-medium is-primary" (click)="events();">Other Events</a></li>
+
 </ul>
 
 <div class="container" *ngFor="let events of output">
