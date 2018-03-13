@@ -37,7 +37,7 @@ $primary: $darkblue;
 $primary-invert: $darkblue-invert;
 
 $info: $yellow;
-$info-invert: #fff;
+$info-invert: #000000;
 
 $success: $green;
 $success-invert: #fff;
@@ -72,13 +72,14 @@ $colors: map-merge($colors, $addColors);
 html{
   width:100%;
   height:100%;
-
 }
 
 body{
   width: 100%;
   height: 100%;
   background-color: $pastelblue;
+  overflow: auto;
+
 }
 
 .top {
@@ -91,6 +92,10 @@ body{
   margin: 5%;
 }
 
+.container{
+  margin: 20px;
+}
+
 .field {
 margin: 3%;
 }
@@ -101,9 +106,7 @@ margin: 3%;
 
 // Font styles
 
-.title {
-  color: aquamarine !important;
-}
+
 
 
 @import "../node_modules/bulma/bulma.sass";

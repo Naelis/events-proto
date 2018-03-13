@@ -12,7 +12,7 @@
         </agm-marker>
 
         <agm-marker *ngIf="eventService.lat && eventService.lng" [latitude]="eventService.lat"
-                    [longitude]="eventService.lng">
+                    [longitude]="eventService.lng" [iconUrl]="'https://i.imgur.com/E7DcVlF.png'">
             <agm-info-window>
                 <p>{{ eventService.locale }}<br>
                     {{ eventService.address }}<br>
