@@ -15,7 +15,7 @@ import {Router} from '@angular/router';
         <div class="container" *ngFor="let events of output" style="padding-bottom: 1em;">
             <img *ngIf="events.images && events.images != null" (error)="events.images.url = 'https://i.imgur.com/SMHWpdS.png'"
                  [src]='events.images.url'>
-            <h2 class="title is-success" *ngIf="events.name.en && events.description.en">{{events.name.en}}</h2>
+            <h2 class="title is-success" *ngIf="events.name.en">{{events.name.en}}</h2>
             <h2 class="title is-success" *ngIf="events.name.fi && !events.name.en">{{events.name.fi}}</h2>
             <div *ngIf="events.description.en" [innerHTML]="events.description.en"></div>
             <div *ngIf="events.description.fi && !events.description.en" [innerHTML]="events.description.fi"></div>
